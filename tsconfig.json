@@ -8,14 +8,15 @@
     "strict": true,
     "noImplicitAny": true,
     "declaration": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": false
   },
   "ts-node": {
     "transpileOnly": true,
     "files": true,
   },
   "include": [
-    "src/main/**/*"
+    "src/main/ts/"
   ],
   "exclude": [
     "node_modules",

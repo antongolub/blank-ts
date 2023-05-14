@@ -22,6 +22,7 @@
     "build:esm": "node ./src/scripts/build.cjs && rename -f 's/\\.js$/\\.mjs/' target/esm/*.js && rename -f 's/\\.js.map$/\\.mjs.map/' target/esm/*.js.map",
     "build:cjs": "node ./src/scripts/build.cjs --cjs && rename -f 's/\\.js$/\\.cjs/' target/cjs/*.js && rename -f 's/\\.js.map$/\\.cjs.map/' target/cjs/*.js.map",
     "build:dts": "tsc --emitDeclarationOnly --skipLibCheck --outDir target/dts",
+    "build:docs": "typedoc --options src/main/typedoc",
     "test": "c8 -r lcov -r text -o target/coverage -x src/scripts -x src/test node --loader ts-node/esm --experimental-specifier-resolution=node src/scripts/test.mjs"
   },
   "repository": {
@@ -44,6 +45,7 @@
     "esbuild-node-externals": "^1.7.0",
     "fast-glob": "^3.2.12",
     "ts-node": "^10.9.1",
+    "typedoc": "^0.24.7",
     "typescript": "^5.0.4"
   }
 }
