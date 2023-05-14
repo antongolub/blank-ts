@@ -1,0 +1,49 @@
+{
+  "name": "@antongolub/blank",
+  "version": "0.0.0",
+  "description": "Blank TS package",
+  "type": "module",
+  "main": "target/cjs/index.cjs",
+  "exports": {
+    ".": {
+      "types": "./target/dts/index.d.ts",
+      "require": "./target/cjs/index.cjs",
+      "import": "./target/esm/index.mjs",
+      "default": "./target/esm/index.mjs"
+    }
+  },
+  "files": [
+    "target/cjs",
+    "target/esm",
+    "target/dts"
+  ],
+  "scripts": {
+    "build": "concurrently 'npm:build:*'",
+    "build:esm": "node ./src/scripts/build.cjs && rename -f 's/\\.js$/\\.mjs/' target/esm/*.js && rename -f 's/\\.js.map$/\\.mjs.map/' target/esm/*.js.map",
+    "build:cjs": "node ./src/scripts/build.cjs --cjs && rename -f 's/\\.js$/\\.cjs/' target/cjs/*.js && rename -f 's/\\.js.map$/\\.cjs.map/' target/cjs/*.js.map",
+    "build:dts": "tsc --emitDeclarationOnly --skipLibCheck --outDir target/dts",
+    "test": "c8 -r lcov -r text -o target/coverage -x src/scripts -x src/test node --loader ts-node/esm --experimental-specifier-resolution=node src/scripts/test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antongolub/blank-ts.git"
+  },
+  "author": "Anton Golub <antongolub@antongolub.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antongolub/blank-ts/issues"
+  },
+  "homepage": "https://github.com/antongolub/blank-ts#readme",
+  "dependencies": {
+    "@types/node": "^20.1.4"
+  },
+  "devDependencies": {
+    "c8": "^7.13.0",
+    "concurrently": "^8.0.1",
+    "esbuild": "^0.17.19",
+    "esbuild-node-externals": "^1.7.0",
+    "fast-glob": "^3.2.12",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}
