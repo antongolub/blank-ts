@@ -19,8 +19,8 @@
   ],
   "scripts": {
     "build": "concurrently 'npm:build:*'",
-    "build:esm": "node ./src/scripts/build.cjs && rename -f 's/\\.js$/\\.mjs/' target/esm/*.js && rename -f 's/\\.js.map$/\\.mjs.map/' target/esm/*.js.map",
-    "build:cjs": "node ./src/scripts/build.cjs --cjs && rename -f 's/\\.js$/\\.cjs/' target/cjs/*.js && rename -f 's/\\.js.map$/\\.cjs.map/' target/cjs/*.js.map",
+    "build:esm": "node ./src/scripts/build.cjs",
+    "build:cjs": "node ./src/scripts/build.cjs --cjs",
     "build:dts": "tsc --emitDeclarationOnly --skipLibCheck --outDir target/dts",
     "build:docs": "typedoc --options src/main/typedoc",
     "test": "concurrently 'npm:test:*'",

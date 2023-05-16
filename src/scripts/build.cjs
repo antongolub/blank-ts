@@ -11,6 +11,9 @@ const esmConfig = {
   platform: 'node',
   target: 'ES2020',
   format: 'esm',
+  outExtension: {
+    '.js': '.mjs'
+  },
   plugins: [nodeExternalsPlugin()],
   tsconfig: './tsconfig.json'
 }
@@ -21,6 +24,9 @@ const cjsConfig = {
   platform: 'node',
   target: 'es6',
   format: 'cjs',
+  outExtension: {
+    '.js': '.cjs'
+  }
 }
 
 const config = process.argv.includes('--cjs')

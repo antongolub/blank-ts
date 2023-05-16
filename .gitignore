@@ -14,6 +14,7 @@ bundle
 build
 buildstamp.json
 dist
+docs
 flow-typed
 lib
 target
