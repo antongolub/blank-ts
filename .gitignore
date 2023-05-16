@@ -7,7 +7,7 @@
 **/*.pem
 **/*.cert
 **/.npmrc
-# **/.yarnrc
+**/.yarnrc
 
 # Bundles
 bundle
