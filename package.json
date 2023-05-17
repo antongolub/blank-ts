@@ -1,5 +1,5 @@
 {
-  "name": "@antongolub/blank",
+  "name": "@antongolub/blank-ts",
   "version": "0.0.0",
   "description": "Blank TS package",
   "type": "module",
