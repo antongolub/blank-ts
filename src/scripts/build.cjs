@@ -16,14 +16,14 @@ const esmConfig = {
   outExtension: {
     '.js': '.mjs'
   },
-  plugins: [nodeExternalsPlugin()],
+  external: ['node:*'],               // https://github.com/evanw/esbuild/issues/1466
+  plugins: [nodeExternalsPlugin()],   // https://github.com/evanw/esbuild/issues/619
   tsconfig: './tsconfig.json'
 }
 
 const cjsConfig = {
   ...esmConfig,
   outdir: './target/cjs',
-  platform: 'node',
   target: 'es6',
   format: 'cjs',
   outExtension: {
